@@ -1,0 +1,122 @@
+样本数：100
+--- 错题 ---
+问题: what is the decline from current future minimum lease payments and the following years expected obligation?\\n
+标准: '25%'  预测: 332
+代码: 'row1 = "fiscal year ending march 31, 2007;operating leases 1703"\nrow2 = "fiscal year ending march 31, 2008;operating leases 1371"\nv1 = int(row1.split(\';\')[1].split()[-1])\nv2 = int(row2.split(\';\')[1].split()[-1])\nresult = v1 - v2'
+
+--- 错题 ---
+问题: what was the ratio of the pension trust assets for 2017 to 2018
+标准: '1.16'  预测: 1.116758933064922
+代码: 'result = (1739 + 480) / (1572 + 415)'
+
+--- 错题 ---
+问题: for the period ending in 2016 , what was the average amount of settlements , in millions?
+标准: '11.3'  预测: -11.333333333333334
+代码: 'result = (-13 + -19 + -2) / 3'
+
+--- 错题 ---
+问题: what was the percentage change in total net goodwill between 2010 and 2011?
+标准: '-21%'  预测: -20.64624422996223
+代码: 'result = (1891 - 2383) / 2383 * 100'
+
+--- 错题 ---
+问题: in 2010 what was the ratio of the statutory capital and surplus to the statutory net income
+标准: '4.9\\\\n'  预测: 5.195283290192695
+代码: 'result = (11798 + 6266) / (2430 + 1047)'
+
+--- 错题 ---
+问题: what is the percentage change in total debt from 2014 to 2015?
+标准: '3.4%'  预测: -3.389830508474576
+代码: 'result = (28.5 - 29.5) / 29.5 * 100'
+
+--- 错题 ---
+问题: what was the percentage growth in the operating profit as reported from 2017 to 2018
+标准: '1.4%'  预测: 1.4237855946398659
+代码: 'row = "operating profit as reported;2018 $ 1211;2017 $ 1194;2016 $ 1087".split(\';\')\nnew = int(row[1].replace(\'$\',\'\').split()[-1])\nold = int(row[2].replace(\'$\',\'\').split()[-1])\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: what was the average currency translation adjustments from 2013 to 2015 in millions?
+标准: '-6806'  预测: -4088.3333333333335
+代码: 'line = "( losses ) earnings ( in millions ) currency translation adjustments;( losses ) earnings 2015 $ -6129 ( 6129 );( losses ) earnings 2014 $ -3929 ( 3929 );2013 $ -2207 ( 2207 )"\nparts = line.split(\';\')\n\ndef get_val(s):\n    for tok in s.replace(\'$\', \' \').replace(\'(\', \' \').replace(\')\', \' \').split():\n        tok = tok.replace(\',\', \'\')\n        if tok.startswith(\'-\'):\n            try:\n                return float(tok)\n            except ValueError:\n                pass\n    return None\n\nv2015 = get_val(parts[1])\nv2014 = get_val(parts[2])\nv2013 = get_val(parts[3])\nresult = (v2015 + v2014 + v2013) / 3'
+
+--- 错题 ---
+问题: what percentage of the total purchase price is represented by goodwill?
+标准: '22%'  预测: 21.650534895568008
+代码: 'result = 3.4 / (15704 / 1000) * 100'
+
+--- 错题 ---
+问题: what is the roi of nasdaq composite from 2008 to 2009?
+标准: '-41.0%'  预测: 39.335930882602064
+代码: 'row = "nasdaq composite;12/29/2007 100.00;1/3/2009 59.03;1/2/2010 82.25;1/1/2011 97.32;12/31/2011 98.63;12/29/2012 110.78".split(\';\')\nv2008 = float(row[2].split()[-1])\nv2009 = float(row[3].split()[-1])\nresult = (v2009 - v2008) / v2008 * 100'
+
+--- 错题 ---
+问题: what percentage of warehouse locations are in north america?
+标准: '21.3%'  预测: 23.456790123456788
+代码: 'result = (3 + 16) / (6 + 75) * 100'
+
+--- 错题 ---
+问题: by how much did the average price per share increase from 2010 to 2011?
+标准: '25.9%'  预测: 16.67
+代码: 'price_2011 = float("  2011;total cost of shares purchased $ 2997688;total number of shares purchased 36940.4;average price paid per share $ 81.15".split(\';\')[-1].replace(\'$\', \'\').split()[-1])\nprice_2010 = float("  2010;total cost of shares purchased $ 1716675;total number of shares purchased 26624.8;average price paid per share $ 64.48".split(\';\')[-1].replace(\'$\', \'\').split()[-1])\nresult = round(price_2011 - price_2010, 2)'
+
+--- 错题 ---
+问题: what are the total contingent payments relating to impella?
+标准: '5583331'  预测: 16750000
+代码: 'text = "commitments and contingencies the company 2019s acquisition of impella provided that abiomed was required to make contingent payments to impella 2019s former shareholders as follows : 2022 upon fda approval of the impella 2.5 device , a payment of $ 5583333 2022 upon fda approval of the impella 5.0 device , a payment of $ 5583333 , and 2022 upon the sale of 1000 units of impella 2019s products worldwide , a payment of $ 5583334 ."\nparts = text.split(\'$\')\nresult = int(parts[1].split()[0]) + int(parts[2].split()[0]) + int(parts[3].split()[0])'
+
+--- 错题 ---
+问题: what is the rate of return of an investment in nasdaq from 2017 to 2018?
+标准: '-3.6%'  预测: -3.6430189994770843
+代码: 'result = (165.84 - 172.11) / 172.11 * 100'
+
+--- 错题 ---
+问题: what portion of the total investment is allocated to mutual funds in 2011?
+标准: '65.1%'  预测: 34.922377887163954
+代码: 'result = 9223 / 26410 * 100'
+
+--- 错题 ---
+问题: based on a 365 day year and the average sales price per barrel listed above , what was the total refined product sales revenue for 2006?
+标准: '$ 40444920\\n'  预测: 40444920000.0
+代码: 'result = 1425 * 1000 * 365 * 77.76'
+
+--- 错题 ---
+问题: what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to tower cash flow?
+标准: '105.0%'  预测: 0.2624750386407482
+代码: 'result = 139590 / 531822'
+
+--- 错题 ---
+问题: what is the percent change in minimum annual rental payment between 2010 and 2011?
+标准: '1.3%'  预测: 1.2658227848101267
+代码: 'rows = [\n    "2008 2009;$ 4935 3144",\n    "2008 2010;$ 4935 3160",\n    "2008 2011;$ 4935 3200",\n    "2008 2012;$ 4935 2768",\n    "2008 thereafter;$ 4935 9934"\n]\ndata = {}\nfor row in rows:\n    label, values = row.split(\';\')\n    years = label.split()\n    nums = values.replace(\'$\', \'\').split()\n    data[years[0]] = int(nums[0])\n    data[years[1]] = int(nums[1])\nold = data[\'2010\']\nnew = data[\'2011\']\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: what was the percentage change in the unrecognized tax benefits from 2015 to 2016?
+标准: '-1%'  预测: -1.0723860589812333
+代码: 'result = (369 - 373) / 373 * 100'
+
+--- 错题 ---
+问题: what is the carrying value of notes due by 2017 ? in millions $ .
+标准: '2448'  预测: 698
+代码: 'data = "( in millions ) 6.25% ( 6.25 % ) notes due 2017;maturity amount 700;unamortized discount -2 ( 2 );carrying value 698;fair value 812"\nfor part in data.split(\';\'):\n    if "carrying value" in part:\n        result = int(part.replace("$", "").replace(",", "").split()[-1])'
+
+--- 错题 ---
+问题: what is the fair value of hologic common stock used to acquire suros?
+标准: '46.3'  预测: 106500
+代码: 'result = 106500'
+
+--- 错题 ---
+问题: what was the percentage change in rental expense for operating leases from 2008 to 2009?
+标准: '17%'  预测: 16.734693877551027
+代码: 'result = (57.2 - 49.0) / 49.0 * 100'
+
+--- 错题 ---
+问题: what portion of total assets acquired is composed of goodwill?
+标准: '69.7%'  预测: 0.6967622381222011
+代码: 'goodwill = int("goodwill;total $ 13536".split(\';\')[1].replace(\'$\', \'\').replace(\',\', \'\').split()[-1])\ntotal_assets = int("total assets acquired;total 19427".split(\';\')[1].replace(\'$\', \'\').replace(\',\', \'\').split()[-1])\nresult = goodwill / total_assets'
+
+--- 错题 ---
+问题: for the the quarter ended december 31 , 2006 what was the percent of the total number of shares purchased bought in october
+标准: '48.2%'  预测: 20.109598886044108
+代码: 'result = 447700 / (447700 + 849200 + 929400) * 100'
+
+EM = 76/100 = 0.7600

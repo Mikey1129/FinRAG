@@ -1,0 +1,122 @@
+样本数：100
+--- 错题 ---
+问题: what is the decline from current future minimum lease payments and the following years expected obligation?\\n
+标准: '25%'  预测: 332
+代码: 'table = """fiscal year ending march 31, | operating leases\n2007 | 1703\n2008 | 1371\n2009 | 1035\n2010 | 710\ntotal future minimum lease payments | $ 4819"""\nrows = [line.split(\' | \') for line in table.strip().splitlines()]\ncurrent = int(rows[1][1].replace(\'$\', \'\').replace(\',\', \'\').strip())\nfollowing = int(rows[2][1].replace(\'$\', \'\').replace(\',\', \'\').strip())\nresult = current - following'
+
+--- 错题 ---
+问题: what was the ratio of the pension trust assets for 2017 to 2018
+标准: '1.16'  预测: 1.116758933064922
+代码: 'result = (1739 + 480) / (1572 + 415)'
+
+--- 错题 ---
+问题: for the period ending in 2016 , what was the average amount of settlements , in millions?
+标准: '11.3'  预测: -11.333333333333334
+代码: 'result = (-13 + -19 + -2) / 3'
+
+--- 错题 ---
+问题: what was the percentage change in total net goodwill between 2010 and 2011?
+标准: '-21%'  预测: -20.64624422996223
+代码: 's = "total | $ 4216 | $ -1833 ( 1833 ) | $ 2383 | $ 9 | $ -13 ( 13 ) | $ -486 ( 486 ) | $ -2 ( 2 ) | $ 1891"\ncols = s.split(\' | \')\nold = int(cols[3].replace(\'$\', \'\').strip())\nnew = int(cols[8].replace(\'$\', \'\').strip())\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: in 2010 what was the ratio of the statutory capital and surplus to the statutory net income
+标准: '4.9\\\\n'  预测: 5.195283290192695
+代码: 'result = (11798 + 6266) / (2430 + 1047)'
+
+--- 错题 ---
+问题: what is the percentage change in total debt from 2014 to 2015?
+标准: '3.4%'  预测: -3.389830508474576
+代码: 'old = 29.5\nnew = 28.5\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: what was the percentage growth in the operating profit as reported from 2017 to 2018
+标准: '1.4%'  预测: 1.4237855946398659
+代码: 'result = (1211 - 1194) / 1194 * 100'
+
+--- 错题 ---
+问题: what was the average currency translation adjustments from 2013 to 2015 in millions?
+标准: '-6806'  预测: -4088.3333333333335
+代码: 'result = (-6129 + -3929 + -2207) / 3'
+
+--- 错题 ---
+问题: what percentage of the total purchase price is represented by goodwill?
+标准: '22%'  预测: 21.650534895568008
+代码: 'result = 3.4 / (15704 / 1000) * 100'
+
+--- 错题 ---
+问题: what is the roi of nasdaq composite from 2008 to 2009?
+标准: '-41.0%'  预测: 39.335930882602064
+代码: 'result = (82.25 - 59.03) / 59.03 * 100'
+
+--- 错题 ---
+问题: by how much did the average price per share increase from 2010 to 2011?
+标准: '25.9%'  预测: 16.67
+代码: 'table = """ | total cost of shares purchased | total number of shares purchased | average price paid per share\n2012 | $ 971883 | 14087.8 | $ 68.99\n2011 | $ 2997688 | 36940.4 | $ 81.15\n2010 | $ 1716675 | 26624.8 | $ 64.48"""\nrows = [line.split(\'|\') for line in table.strip().split(\'\\n\')]\navg_2011 = float(rows[2][3].replace(\'$\', \'\').strip())\navg_2010 = float(rows[3][3].replace(\'$\', \'\').strip())\nresult = round(avg_2011 - avg_2010, 2)'
+
+--- 错题 ---
+问题: what are the total contingent payments relating to impella?
+标准: '5583331'  预测: 16750000
+代码: 'result = 5583333 + 5583333 + 5583334'
+
+--- 错题 ---
+问题: what is the rate of return of an investment in nasdaq from 2017 to 2018?
+标准: '-3.6%'  预测: -3.6430189994770843
+代码: 'result = (165.84 - 172.11) / 172.11 * 100'
+
+--- 错题 ---
+问题: what is the percentage reduction in the loews common stock from 2013 to 2014
+标准: '-12.4%'  预测: 12.390081597084688
+代码: 'result = (126.23 - 110.59) / 126.23 * 100'
+
+--- 错题 ---
+问题: what portion of the total investment is allocated to mutual funds in 2011?
+标准: '65.1%'  预测: 34.922377887163954
+代码: "mutual_funds_2011 = int('9223')\ntotal_2011 = int('$ 26410'.replace('$', '').strip())\nresult = mutual_funds_2011 / total_2011 * 100"
+
+--- 错题 ---
+问题: based on a 365 day year and the average sales price per barrel listed above , what was the total refined product sales revenue for 2006?
+标准: '$ 40444920\\n'  预测: 40444920000.0
+代码: 'result = 1425 * 1000 * 365 * 77.76'
+
+--- 错题 ---
+问题: what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to tower cash flow?
+标准: '105.0%'  预测: 1.049900154562993
+代码: 'result = 558360 / 531822'
+
+--- 错题 ---
+问题: what is the percent change in minimum annual rental payment between 2010 and 2011?
+标准: '1.3%'  预测: 1.2658227848101267
+代码: 'old = 3160\nnew = 3200\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: what was the percentage change in the unrecognized tax benefits from 2015 to 2016?
+标准: '-1%'  预测: -1.0723860589812333
+代码: 'result = (369 - 373) / 373 * 100'
+
+--- 错题 ---
+问题: what is the carrying value of notes due by 2017 ? in millions $ .
+标准: '2448'  预测: 698
+代码: 'result = 698'
+
+--- 错题 ---
+问题: what is the roi of an investment in s&p500 index from 2006 to january 3 , 2009?
+标准: '-34.3%'  预测: None
+代码: 'data = """company/index | december 30 2006 | december 29 2007 | january 3 2009 | january 2 2010 | january 1 2011 | december 31 2011\nadvance auto parts | $ 100.00 | $ 108.00 | $ 97.26 | $ 116.01 | $ 190.41 | $ 201.18\ns&p 500 index | 100.00 | 104.24 | 65.70 | 78.62 | 88.67 | 88.67\ns&p retail index | 100.00 | 82.15 | 58.29 | 82.36 | 101.84 | 104.81"""\nrows = {}\nfor line in data.strip().split("\\n"):\n    cols = [c.strip() for c in line.split("|")]\n    rows[cols[0].lower()] = [float(c.replace("$", "").replace(",", "")) for c in cols[1:]]\nsp = rows["s&p 500 index"]\nresult = round((sp[2] - sp[0]) / sp[0] * 100, 2)'
+
+--- 错题 ---
+问题: what is the fair value of hologic common stock used to acquire suros?
+标准: '46.3'  预测: 106500
+代码: 'text = "the initial aggregate purchase price for suros of approximately $ 248100 ( subject to adjustment ) consisted of 2300 shares of hologic common stock valued at $ 106500 , cash paid of $ 139000 , and approximately $ 2600 for acquisition related fees and expenses ."\nresult = int(text.split(\'valued at $ \')[1].split()[0].replace(\',\', \'\'))'
+
+--- 错题 ---
+问题: what was the percentage change in rental expense for operating leases from 2008 to 2009?
+标准: '17%'  预测: 16.734693877551027
+代码: 'result = (57.2 - 49.0) / 49.0 * 100'
+
+--- 错题 ---
+问题: for the the quarter ended december 31 , 2006 what was the percent of the total number of shares purchased bought in october
+标准: '48.2%'  预测: 20.109598886044108
+代码: 'result = 447700 / (447700 + 849200 + 929400) * 100'
+
+EM = 76/100 = 0.7600

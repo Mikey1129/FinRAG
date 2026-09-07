@@ -1,0 +1,58 @@
+样本数：100
+--- 错题 ---
+问题: what is the decline from current future minimum lease payments and the following years expected obligation?\\n
+标准: '25%'  预测: 332
+代码: 'result = 1703 - 1371'
+
+--- 错题 ---
+问题: what was the ratio of the pension trust assets for 2017 to 2018
+标准: '1.16'  预测: 1.116758933064922
+代码: 'result = (1739 + 480) / (1572 + 415)'
+
+--- 错题 ---
+问题: what percent of inventory is ready for liquidation ( sale ) in 2003?
+标准: '72.83%'  预测: None
+代码: 'result = (float("finished goods;2003 $ 384.3;2002 $ 206.7".split(\';\')[1].replace(\'$\', \'\').strip()) / float("inventories net;2003 $ 527.7;2002 $ 257.6".split(\';\')[1].replace(\'$\', \'\').strip())) * 100'
+
+--- 错题 ---
+问题: in 2010 what was the ratio of the statutory capital and surplus to the statutory net income
+标准: '4.9\\\\n'  预测: 5.195283290192695
+代码: 'result = (11798 + 6266) / (2430 + 1047)'
+
+--- 错题 ---
+问题: what is the roi of nasdaq composite from 2008 to 2009?
+标准: '-41.0%'  预测: 39.335930882602064
+代码: 'result = (82.25 - 59.03) / 59.03 * 100'
+
+--- 错题 ---
+问题: what is the percentage reduction in the loews common stock from 2013 to 2014
+标准: '-12.4%'  预测: 12.390081597084688
+代码: 'result = (126.23 - 110.59) / 126.23 * 100'
+
+--- 错题 ---
+问题: based on a 365 day year and the average sales price per barrel listed above , what was the total refined product sales revenue for 2006?
+标准: '$ 40444920\\n'  预测: 40444920.0
+代码: 'result = 1425 * 365 * 77.76'
+
+--- 错题 ---
+问题: what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to tower cash flow?
+标准: '105.0%'  预测: 26.247503864074822
+代码: 'result = int("tower cash flow for the three months ended december 31 2005 adjusted consolidated cash flow for the twelve months ended december 31 2005;$ 139590 $ 531822".split(\';\')[1].replace(\'$\', \'\').split()[0]) / int("tower cash flow for the three months ended december 31 2005 adjusted consolidated cash flow for the twelve months ended december 31 2005;$ 139590 $ 531822".split(\';\')[1].replace(\'$\', \'\').split()[1]) * 100'
+
+--- 错题 ---
+问题: what was the percentage change in the unrecognized tax benefits from 2015 to 2016?
+标准: '-1%'  预测: -1.0723860589812333
+代码: 'result = (369 - 373) / 373 * 100'
+
+--- 错题 ---
+问题: what is the carrying value of notes due by 2017 ? in millions $ .
+标准: '2448'  预测: 698
+代码: 'result = 698'
+
+--- 错题 ---
+问题: for the the quarter ended december 31 , 2006 what was the percent of the total number of shares purchased bought in october
+标准: '48.2%'  预测: 20.109598886044108
+代码: 'result = 447700 / 2226300 * 100'
+
+EM 严格 = 83/100 = 0.8300
+EM 宽松(2位有效数字) = 89/100 = 0.8900

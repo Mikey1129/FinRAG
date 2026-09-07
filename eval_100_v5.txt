@@ -1,0 +1,68 @@
+样本数：100
+--- 错题 ---
+问题: what is the decline from current future minimum lease payments and the following years expected obligation?\\n
+标准: '25%'  预测: 332
+代码: 'result = 1703 - 1371'
+
+--- 错题 ---
+问题: what is the applied 2019s net sales in 2018 , ( in billions ) ?
+标准: '7.22'  预测: None
+代码: 'result = None'
+
+--- 错题 ---
+问题: what was the ratio of the pension trust assets for 2017 to 2018
+标准: '1.16'  预测: 1.116758933064922
+代码: 'result = (1739 + 480) / (1572 + 415)'
+
+--- 错题 ---
+问题: in 2010 what was the ratio of the statutory capital and surplus to the statutory net income
+标准: '4.9\\\\n'  预测: 5.195283290192695
+代码: 'result = (11798 + 6266) / (2430 + 1047)'
+
+--- 错题 ---
+问题: what are the annual other sinking fund requirements as a percentage of annual long-term debt maturities ( excluding lease obligations ) and annual cash sinking fund requirements for debt outstanding in 2007?
+标准: '6.35%'  预测: 1.8572340496188982
+代码: 'row = "2003 2007;$ 1150786 $ 475288"\nvals = row.split(\';\')[1].replace(\'$\', \'\').split()\ndebt_2007 = int(vals[0])\ncash_2007 = int(vals[1])\nother = 30.2 * 1000\nresult = other / (debt_2007 + cash_2007) * 100'
+
+--- 错题 ---
+问题: what was the average currency translation adjustments from 2013 to 2015 in millions?
+标准: '-4088.333'  预测: None
+代码: 'row = "( losses ) earnings ( in millions ) currency translation adjustments;( losses ) earnings 2015 $ -6129 ( 6129 );( losses ) earnings 2014 $ -3929 ( 3929 );2013 $ -2207 ( 2207 )"\nparts = row.split(\';\')\nvals = []\nfor part in parts[1:]:\n    clean = part.replace(\'$\', \'\').replace(\'(\', \'\').replace(\')\', \'\').replace(\',\', \'\')\n    tokens = clean.split()\n    vals.append(float(tokens[1]))\nresult = sum(vals) / len(vals)'
+
+--- 错题 ---
+问题: what percent higher is the average var for foreign exchange products than that of interest rate products?
+标准: '44%'  预测: 63.636363636363626
+代码: 'fx = float("years ended december 31 ( inmillions ) foreign exchange products;2008 annual average $ 1.8;2008 maximum $ 4.7;2008 minimum $ .3;2008 annual average $ 1.8;2008 maximum $ 4.0;minimum $ .7".split(\';\')[1].replace(\'$\', \'\').split()[-1])\nir = float("years ended december 31 ( inmillions ) interest-rate products;2008 annual average 1.1;2008 maximum 2.4;2008 minimum .6;2008 annual average 1.4;2008 maximum 3.7;minimum .1".split(\';\')[1].replace(\'$\', \'\').split()[-1])\nresult = (fx - ir) / ir * 100'
+
+--- 错题 ---
+问题: what is the roi of nasdaq composite from 2008 to 2009?
+标准: '-41.0%'  预测: 39.335930882602064
+代码: 'row = "nasdaq composite;12/29/2007 100.00;1/3/2009 59.03;1/2/2010 82.25;1/1/2011 97.32;12/31/2011 98.63;12/29/2012 110.78"\nparts = row.split(\';\')\nold = float(parts[2].replace(\'$\', \'\').split()[-1])\nnew = float(parts[3].replace(\'$\', \'\').split()[-1])\nresult = (new - old) / old * 100'
+
+--- 错题 ---
+问题: based on a 365 day year and the average sales price per barrel listed above , what was the total refined product sales revenue for 2006?
+标准: '$ 40444920\\n'  预测: 40444920000.0
+代码: 'total_row = "( thousands of barrels per day ) total ( a );2006 1425;2005 1455;2004 1400"\nprice_row = "( thousands of barrels per day ) average sales price ( $ per barrel );2006 $ 77.76;2005 $ 66.42;2004 $ 49.53"\ntotal_2006 = float(total_row.split(\';\')[1].split()[-1])\nprice_2006 = float(price_row.split(\';\')[1].replace(\'$\',\'\').split()[-1])\nresult = total_2006 * 1000 * 365 * price_2006'
+
+--- 错题 ---
+问题: what portion of the adjusted consolidated cash flow for the twelve months ended december 31 , 2005 is related to tower cash flow?
+标准: '105.0%'  预测: 26.247503864074822
+代码: 'row = "tower cash flow for the three months ended december 31 2005 adjusted consolidated cash flow for the twelve months ended december 31 2005;$ 139590 $ 531822"\nvals = row.split(\';\')[1].replace(\'$\', \'\').split()\ntower = float(vals[0])\nadjusted = float(vals[1])\nresult = tower / adjusted * 100'
+
+--- 错题 ---
+问题: what was the percentage change in the unrecognized tax benefits from 2015 to 2016?
+标准: '-1%'  预测: -1.0723860589812333
+代码: 'result = (369 - 373) / 373 * 100'
+
+--- 错题 ---
+问题: what is the carrying value of notes due by 2017 ? in millions $ .
+标准: '2448'  预测: 698
+代码: 'row = "( in millions ) 6.25% ( 6.25 % ) notes due 2017;maturity amount 700;unamortized discount -2 ( 2 );carrying value 698;fair value 812"\nresult = int(row.split(\';\')[3].split()[-1])'
+
+--- 错题 ---
+问题: for the the quarter ended december 31 , 2006 what was the percent of the total number of shares purchased bought in october
+标准: '48.2%'  预测: 20.109598886044108
+代码: 'oct = 447700\nqtr = 447700 + 849200 + 929400\nresult = oct / qtr * 100'
+
+EM 严格 = 81/100 = 0.8100
+EM 宽松(2位有效数字) = 87/100 = 0.8700
