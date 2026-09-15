@@ -8,3 +8,6 @@ __pycache__/
 
 # 系统垃圾文件
 $null
+
+# Streamlit 本地配置
+.streamlit/

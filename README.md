@@ -19,6 +19,8 @@
 | **严格 EM** | **0.84** | 精确匹配（1% 相对误差） |
 | **宽松 EM** | **0.90** | 2 位有效数字对齐 |
 
+> 🚀 **开箱即用**：这不止是一套评测脚本——还提供两个可直接使用的入口：命令行 `ask.py`（粘贴财报 → 循环提问）和 Web `app.py`（Streamlit 网页问答，可视化「取了哪几个数、怎么算」）。见 [快速开始](#快速开始)。
+
 ---
 
 ## 亮点速览
@@ -171,6 +173,7 @@ result = -42.6...
 | **DeepSeek API** | `deepseek-v4-pro` | 实际的推理大模型 | 通过 OpenAI 兼容 `base_url`，成本低、数值推理能力够用 |
 | **scikit-learn** | 1.5.2 | 检索：TF-IDF 向量化 + 余弦相似度 | 轻量、无外部服务、召回够用，无需引入向量数据库 |
 | **python-dotenv** | — | 从 `.env` 加载 API Key | 密钥不入库 |
+| **Streamlit** | 1.63 | Web 交互界面（`app.py`） | 纯 Python 快速搭建问答 UI，零前端代码 |
 | **`exec`（内置）** | — | 执行 LLM 生成的 Python 代码 | 把“计算”交给解释器，保证数值精确 |
 
 > 关键点：这里的 RAG **不是**“检索 + 生成自然语言答案”，而是**“检索 + 生成代码 + 执行”**。LLM 只负责“读懂问题、写出计算逻辑”，真正的数值运算由 Python 解释器完成——这就是它能拿到精确数值答案的根本原因。
@@ -366,6 +369,8 @@ FinRAG/
 │   ├── reasoner.py         # 主流程：生成 + 执行 + 双口径评估
 │   └── .env                # DEEPSEEK_API_KEY（不入库）
 ├── verify_fix.py           # 数据修复的离线验证脚本
+├── ask.py                  # CLI 问答入口（粘贴财报 → 循环提问，--demo 演示）
+├── app.py                  # Streamlit Web 入口（网页问答 + 可视化推导依据）
 ├── eval_100_v*.txt         # 各版本评估日志（错题逐条）
 └── README.md
 ```
@@ -376,7 +381,7 @@ FinRAG/
 
 ```bash
 # 1. 安装依赖
-pip install langchain-openai langchain-core scikit-learn python-dotenv
+pip install langchain-openai langchain-core scikit-learn python-dotenv streamlit pandas
 
 # 2. 配置 API Key（src/.env）
 echo 'DEEPSEEK_API_KEY = "sk-..."' > src/.env
@@ -388,5 +393,20 @@ python src/reasoner.py
 # 4. 看检索召回
 python src/retriever.py
 ```
+
+### 实际使用（开箱即用）
+
+```bash
+# 5. 命令行问答
+python ask.py
+# 交互式：粘贴财报表格（第一行表头，逗号/制表符分隔）→ 空行结束
+#         → 可选粘贴文本段落 → 逐条提问，得到「答案 + 依据行/段落 + 生成代码」
+python ask.py --demo    # 从 dev.json 前 100 题挑样本，演示完整检索+推理
+
+# 6. Web 应用
+streamlit run app.py
+# 浏览器自动打开 http://localhost:8501
+# 网页粘贴财报表格 → 提问 → 答案卡片 + 推导依据 tab + 生成代码 tab
+# 侧边栏可「🧪 加载示例数据」一键体验（PNC/2013 原题）
 
 > 注意：Python 需 3.11（本项目用 Anaconda 解释器）；单次 LLM 调用约 65–70s，全量 100 题约 2 小时。
